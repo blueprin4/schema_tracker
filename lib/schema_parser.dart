@@ -24,9 +24,8 @@ Future<CollectionSchema> parseSchemaFile(File file) async {
   return CollectionSchema(name, fields);
 }
 
-Future<List<CollectionSchema>> readAllSchemas(String projectPath) async {
-  final schemaDir =
-      Directory(path.join(projectPath, 'lib', 'backend', 'schema'));
+Future<List<CollectionSchema>> readAllSchemas() async {
+  final schemaDir = Directory('lib/backend/schema');
   final files = schemaDir
       .listSync()
       .whereType<File>()
